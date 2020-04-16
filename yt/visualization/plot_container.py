@@ -425,7 +425,7 @@ class PlotContainer(object):
         Parameters
         ----------
         size : float
-        The absolute size of the font in points (1 pt = 1/72 inch).
+            The absolute size of the font in points (1 pt = 1/72 inch).
 
         """
         return self.set_font({'size': size})
@@ -576,6 +576,9 @@ class PlotContainer(object):
         label : str
             The new string for the x-axis.
 
+        Examples
+        --------
+
         >>>  plot.set_xlabel("H2I Number Density (cm$^{-3}$)")
 
         """
@@ -592,6 +595,9 @@ class PlotContainer(object):
         ----------
         label : str
             The new string for the y-axis.
+
+        Examples
+        --------
 
         >>>  plot.set_ylabel("Temperature (K)")
 
@@ -710,7 +716,7 @@ class PlotContainer(object):
         ----------
 
         field : string, field tuple, or list of strings or field tuples (optional)
-        The name of the field(s) that we want to show the colorbar.
+            The name of the field(s) that we want to show the colorbar.
         """
         if field is None:
             field = self.fields
@@ -883,10 +889,10 @@ class ImagePlotContainer(PlotContainer):
         ----------------
         dynamic_range : float (default: None)
             The dynamic range of the image.
-            If zmin == None, will set zmin = zmax / dynamic_range
-            If zmax == None, will set zmax = zmin * dynamic_range
-            When dynamic_range is specified, defaults to setting
-            zmin = zmax / dynamic_range.
+            If ``zmin == None``, will set ``zmin = zmax / dynamic_range``
+            If ``zmax == None``, will set ``zmax = zmin * dynamic_range``
+            When `dynamic_range` is specified, defaults to setting
+            ``zmin = zmax / dynamic_range``.
 
         """
         if field == 'all':
@@ -963,6 +969,9 @@ class ImagePlotContainer(PlotContainer):
           The name of the field to modify the label for.
         label : str
           The new label
+
+        Examples
+        --------
 
         >>>  plot.set_colorbar_label("density", "Dark Matter Density (g cm$^{-3}$)")
 

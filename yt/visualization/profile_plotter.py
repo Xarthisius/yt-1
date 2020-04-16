@@ -803,6 +803,9 @@ class ProfilePlot(object):
         text_kwargs : dict
           Dictionary of text keyword arguments to be passed to matplotlib
 
+        Examples
+        --------
+
         >>>  import yt
         >>>  from yt.units import kpc
         >>>  ds = yt.load('IsolatedGalaxy/galaxy0030/galaxy0030')
@@ -894,8 +897,8 @@ class PhasePlot(ImagePlotContainer):
     >>> import yt
     >>> ds = yt.load("enzo_tiny_cosmology/DD0046/DD0046")
     >>> ad = ds.all_data()
-    >>> plot = PhasePlot(ad, "density", "temperature", ["cell_mass"],
-    ...                  weight_field=None)
+    >>> plot = yt.PhasePlot(ad, "density", "temperature", ["cell_mass"],
+    ...                     weight_field=None)
     >>> plot.save()
 
     >>> # Change plot properties.
@@ -1201,7 +1204,10 @@ class PhasePlot(ImagePlotContainer):
         text_kwargs : dict
           Dictionary of text keyword arguments to be passed to matplotlib
 
-        >>>  plot.annotate_text(1e-15, 5e4, "Hello YT")
+        Examples
+        --------
+
+        >>>  plot.annotate_text(1e-15, 5e4, "Hello yt")
 
         """
         for f in self.data_source._determine_fields(list(self.plots.keys())):
@@ -1229,6 +1235,9 @@ class PhasePlot(ImagePlotContainer):
            type will be inferred from the filename. Defaults to PNG.
         mpl_kwargs : dict
            A dict of keyword arguments to be passed to matplotlib.
+
+        Examples
+        --------
 
         >>> plot.save(mpl_kwargs={'bbox_inches':'tight'})
 
@@ -1317,7 +1326,7 @@ class PhasePlot(ImagePlotContainer):
         This sets the font to be 24-pt, blue, sans-serif, italic, and
         bold-face.
 
-        >>> prof = ProfilePlot(ds.all_data(), 'density', 'temperature')
+        >>> prof = yt.ProfilePlot(ds.all_data(), 'density', 'temperature')
         >>> slc.set_font({'family':'sans-serif', 'style':'italic',
         ...               'weight':'bold', 'size':24, 'color':'blue'})
 
