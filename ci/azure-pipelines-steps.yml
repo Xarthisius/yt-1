@@ -1,0 +1,30 @@
+parameters:
+  platform: none
+  installer: none
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+    architecture: 'x64'
+  displayName: 'Use Python $(python.version)'
+  condition: and(succeeded(), ne(variables['python.version'], 'Pre'))
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install tox codecov
+  displayName: 'Install pip dependencies'
+
+- script: env
+  displayName: 'print env'
+
+- script: |
+    tox
+  displayName: 'tox'
+
+#- task: PythonScript@0
+#  inputs:
+#    scriptSource: 'filePath'
+#    scriptPath: 'ci/upload_coverage.py'
+#    arguments: --codecov-token xxx
+#  displayName: 'codecov'

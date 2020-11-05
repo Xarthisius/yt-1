@@ -1,0 +1,20 @@
+variables:
+  PIP_CACHE_DIR: $(Pipeline.Workspace)/cache/pip
+  CCACHE_DIR: $(Pipeline.Workspace)/cache/ccache
+
+jobs:
+  - job: 'Windows'
+    pool:
+      vmImage: vs2017-win2016
+    strategy:
+      matrix:
+        py37:
+          python.version: '3.7'
+          TOXENV: py37-test-deps,py37-test-deps-pre
+      maxParallel: 4
+    steps:
+      - template: ci/azure-pipelines-steps.yml
+        parameters:
+          platform: windows
+          installer: nuget
+          shell: cmd
