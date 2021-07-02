@@ -39,7 +39,6 @@ jobs:
         shell: bash
         env:
           dependencies: "full"
-          CXXFLAGS: "-static-libstdc++"
           LDFLAGS: "-static-libstdc++"
         run: source ./tests/ci_install.sh
 
@@ -51,9 +50,9 @@ jobs:
           CIBW_ARCHS_LINUX: "x86_64"
           CIBW_ARCHS_MACOS: "x86_64"
           CIBW_ARCHS_WINDOWS: "auto"
-          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
-          CIBW_MANYLINUX_I686_IMAGE: manylinux2014
-          # CIBW_ENVIRONMENT: "LDFLAGS='-static-libstdc++' CXXFLAGS='-static-libstdc++'"
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
+          CIBW_MANYLINUX_I686_IMAGE: manylinux2010
+          CIBW_ENVIRONMENT: "LDFLAGS='-static-libstdc++'"
 
       - uses: actions/upload-artifact@v2
         with:
