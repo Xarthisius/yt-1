@@ -40,8 +40,8 @@ jobs:
           python -m cibuildwheel --output-dir dist
         env:
           CIBW_BUILD: "cp37-* cp38-* cp39-*"
-          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
-          CIBW_MANYLINUX_I686_IMAGE: manylinux2010
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
+          CIBW_MANYLINUX_I686_IMAGE: manylinux2014
           MPL_DISABLE_FH4: "yes"
           CIBW_ARCHS: "auto"
 
