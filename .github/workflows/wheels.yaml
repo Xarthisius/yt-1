@@ -1,6 +1,12 @@
-name: Wheels
+name: Build CI Wheels
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - stable
+    tags:
+      - yt-*
 
 jobs:
   build_wheels:
