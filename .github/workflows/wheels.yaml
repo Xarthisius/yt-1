@@ -42,10 +42,12 @@ jobs:
           python -m cibuildwheel --output-dir dist
         env:
           CIBW_BUILD: "cp37-* cp38-* cp39-*"
+          CIBW_ARCHS_LINUX: "x86_64"
+          CIBW_ARCHS_MACOS: "x86_64"
+          CIBW_ARCHS_WINDOWS: "auto"
           CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
           CIBW_MANYLINUX_I686_IMAGE: manylinux2014
-          MPL_DISABLE_FH4: "yes"
-          CIBW_ARCHS: "auto"
+          # CIBW_ENVIRONMENT: "LDFLAGS='-static-libstdc++' CXXFLAGS='-static-libstdc++'"
 
       - uses: actions/upload-artifact@v2
         with:
