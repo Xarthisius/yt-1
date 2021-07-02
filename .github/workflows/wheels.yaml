@@ -33,6 +33,8 @@ jobs:
         shell: bash
         env:
           dependencies: "full"
+          CXXFLAGS: "-static-libstdc++"
+          LDFLAGS: "-static-libstdc++"
         run: source ./tests/ci_install.sh
 
       - name: Build wheels for CPython
