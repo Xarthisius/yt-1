@@ -1,6 +1,9 @@
 name: Build and Test
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 defaults:
   run:
