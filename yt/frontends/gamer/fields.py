@@ -432,6 +432,9 @@ class GAMERFieldInfo(FieldInfoContainer):
             def _specific_thermal_energy(field, data):
                 return et(data) / data["gamer", "Dens"]
 
+            def _specific_thermal_energy_new(field, data):  # TODO
+                return _specific_thermal_energy(field, data)
+
             # total energy per mass
             def _specific_total_energy(field, data):
                 return data["gamer", "Engy"] / data["gamer", "Dens"]
@@ -439,6 +442,9 @@ class GAMERFieldInfo(FieldInfoContainer):
             # pressure
             def _pressure(field, data):
                 return et(data) * (data.ds.gamma - 1.0)
+
+            def _pressure_new(field, data):  # TODO
+                return _pressure(field, data)
 
         self.add_field(
             ("gas", "specific_thermal_energy_old"),
